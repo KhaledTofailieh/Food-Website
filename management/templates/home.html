@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="chart-title">
+
+                    <h4>Most Popular Rests</h4>
+                    <input type="date" placeholder="date" name="rests_date" style="margin-left: 40%; margin-top: 0.0%; height: 35px;">
+                    <button class="btn btn-primary float-right">Ok</button>
+<!--                    <span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>-->
+                </div>
+                <canvas id="linegraph"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="chart-title">
+
+                    <h4>Sales Per Region</h4>
+                    <input type="date" placeholder="date" name="sales_date" id="sales_date" style="margin-left: 45%; margin-top: 0.0%; height: 35px;">
+                    <button class="btn btn-primary float-right" onclick="handleSalesButtonClicked()">Ok</button>
+<!--                    <div class="float-right">-->
+<!--                        <ul class="chat-user-total">-->
+<!--                            <li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>-->
+<!--                            <li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+                </div>
+
+                <canvas id="bargraph"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<script>
+    function handleSalesButtonClicked() {
+    alert("clicked")
+}
+function handleRestsButtonClicked() {
+    $.post('',{
+    updated:'market',
+    key: myRadio.value,
+    csrfmiddlewaretoken: '{{ csrf_token }}' })
+}
+</script>
+
+<!--   $.post('',{-->
+<!--    updated:'market',-->
+<!--    key: myRadio.value,-->
+<!--    csrfmiddlewaretoken: '{{ csrf_token }}' })-->

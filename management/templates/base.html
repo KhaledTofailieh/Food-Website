@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'management/img/favicon.ico">
+    <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'management/css/switchbutton.css' %}">
+
+    <!--[if lt IE 9]>
+		<script src="{% static 'management/js/html5shiv.min.js' %}"></script>
+		<script src="{% static 'management/js/respond.min.js' %}"></script>
+	<![endif]-->
+</head>
+<body>
+<div class="main-wrapper">
+<!--    start header     -->
+     <div class="header">
+<!--			<div class="header-left">-->
+<!--				<a href="index-2.html" class="logo">-->
+<!--					-->
+<!--				</a>-->
+<!--			</div>-->
+        <a id="toggle_btn" href="javascript:void(0);">
+        <img src="{% static 'management/img/logo1 - Copy.png' %}" alt="" style="margin-top: -1rem;">
+        <span style="color:black;font-size: 25px"><b>BeeOrder</b></span></a>
+<!--            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"></i></a>-->
+
+
+        </div>
+<!--   end header  -->
+    <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+
+                    <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="active">
+                            <a href="index-2.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+							<a href="#"><i class="fa fa-flag-o"></i> <span> About us </span></a>
+						</li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+<!--    page strat -->
+     <div class="page-wrapper">
+        <div class="content">
+            {% block content %}
+
+            {% endblock %}
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title d-inline-block">Marketing Strategy</h4> <a href="appointments.html" class="btn btn-primary float-right">View all</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead class="d-none">
+                                        <tr>
+                                        <td>
+                                                <h2>Strategy Name</h2>
+                                        </td>
+                                           <td>
+                                                <h2>Description</h2>
+                                           </td>
+                                        <td>
+                                                <h2>Strategy Key</h2>
+                                        </td>
+                                            <td class="text-right">Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for st in m_strategies %}
+                                        <tr>
+                                            <td style="min-width: 200px;">
+                                                <a class="avatar" href="profile.html">{{ forloop.counter }}</a>
+                                                <h2><a href="profile.html">Name<span>{{st.name}}</span></a></h2>
+                                            </td>
+                                            <td>
+                                                <h5 class="time-title p-0">Key</h5>
+                                                <p>{{st.key}}</p>
+                                            </td>
+                                            <td>
+                                                 <h5 class="time-title p-0">Description</h5>
+                                                <p>{{st.description}}</p>
+                                            </td>
+<!--                                            <td class="text-right">-->
+<!--                                                <a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>-->
+<!--                                            </td>-->
+                                            <td>
+                                              <div class="button r" id="button-1">
+                                                  {% if st.isActive == True %}
+                                                  {% csrf_token %}
+                                                  <input type="radio" class="checkbox" checked onclick="handleClickMarketStrategy(this);" value={{st.key}} name="radio">
+<!--                                                  <a href="/manager/strategies"></a>-->
+                                                  {% else %}
+                                                  {% csrf_token %}
+                                                  <input type="radio" class="checkbox"  onclick="handleClickMarketStrategy(this);" value={{st.key}} name="radio">
+<!--                                                  <a href="/manager/strategies"></a>-->
+                                                  {% endif %}
+                                                  <div class="knobs"></div>
+                                                  <div class="layer"></div>
+                                              </div>
+                                             </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title d-inline-block">Application Strategy </h4> <a href="patients.html" class="btn btn-primary float-right">View all</a>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table mb-0 new-patient-table">
+                        <tbody>
+                        {% for st in u_strategies %}
+                            <tr>`
+                                <td>
+<!--                                    <img width="28" height="28" class="rounded-circle" src="{% static 'management/img/user.jpg' %}" alt="">-->
+                                    <h2>{{st.name}}</h2>
+                                </td>
+                                <td>{{st.description}}</td>
+                                <td>{{st.key}}</td>
+<!--                                <td><button class="btn btn-primary btn-primary-four float-right">Fever</button></td>-->
+                                <td>
+                                 <div class="button r" id="button-1">
+                                      {% if st.isActive == True %}
+                                      {% csrf_token %}
+                                      <input type="radio" class="checkbox" checked onclick="handleClickApplicationStrategy(this);" value={{st.key}} name="radio-1">
+<!--                                                  <a href="/manager/strategies"></a>-->
+                                      {% else %}
+                                      {% csrf_token %}
+                                      <input type="radio" class="checkbox"  onclick="handleClickApplicationStrategy(this);" value={{st.key}} name="radio-1">
+<!--                                                  <a href="/manager/strategies"></a>-->
+                                      {% endif %}
+                                      <div class="knobs"></div>
+                                      <div class="layer"></div>
+                                  </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+
+
+<!--            <div class="row">-->
+<!--                <div class="col-12 col-md-6 col-lg-8 col-xl-8">-->
+<!--        <div class="card">-->
+<!--            <div class="card-header">-->
+<!--                <h4 class="card-title d-inline-block">Application Strategy </h4> <a href="patients.html" class="btn btn-primary float-right">View all</a>-->
+<!--            </div>-->
+<!--            <div class="card-block">-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table mb-0 new-patient-table">-->
+<!--                        <tbody>-->
+<!--                        {% for st in sales_per_month %}-->
+<!--                            <tr>`-->
+<!--                                <td>-->
+<!--&lt;!&ndash;                                    <img width="28" height="28" class="rounded-circle" src="{% static 'management/img/user.jpg' %}" alt="">&ndash;&gt;-->
+<!--                                    <h2>"st.name"</h2>-->
+<!--                                </td>-->
+<!--                                <td>st.description</td>-->
+<!--                                <td>st.key</td>-->
+<!--&lt;!&ndash;                                <td><button class="btn btn-primary btn-primary-four float-right">Fever</button></td>&ndash;&gt;-->
+<!--                                <td>-->
+<!--                                 <div class="button r" id="button-1">-->
+<!--                                      {% if st.isActive == True %}-->
+<!--                                      {% csrf_token %}-->
+<!--                                      <input type="radio" class="checkbox" checked onclick="handleClickApplicationStrategy(this);" value={{st.key}} name="radio-1">-->
+<!--&lt;!&ndash;                                                  <a href="/manager/strategies"></a>&ndash;&gt;-->
+<!--                                      {% else %}-->
+<!--                                      {% csrf_token %}-->
+<!--                                      <input type="radio" class="checkbox"  onclick="handleClickApplicationStrategy(this);" value={{st.key}} name="radio-1">-->
+<!--&lt;!&ndash;                                                  <a href="/manager/strategies"></a>&ndash;&gt;-->
+<!--                                      {% endif %}-->
+<!--                                      <div class="knobs"></div>-->
+<!--                                      <div class="layer"></div>-->
+<!--                                  </div>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        {% endfor %}-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--            </div>-->
+        </div>
+     </div>
+
+<!--    page end-->
+</div>
+<script>
+    var currentValue = 0;
+    function handleClickMarketStrategy(myRadio) {
+    $.post('',{
+    updated:'market',
+    key: myRadio.value,
+    csrfmiddlewaretoken: '{{ csrf_token }}' })
+}
+
+function handleClickApplicationStrategy(myRadio) {
+    $.post('',{
+    updated:'app',
+    key: myRadio.value,
+    csrfmiddlewaretoken: '{{ csrf_token }}' })
+}
+</script>
+
+<script>
+    function handleSalesButtonClicked() {
+    var sales_date = document.getElementById('sales_date');
+
+    $.post('',{
+    updated:'sales',
+    date: sales_date.value,
+    csrfmiddlewaretoken: '{{ csrf_token }}' }).done(function (data) {
+        if (data.success) {
+            window.location.href = data.url;
+        }
+        });
+}
+function handleRestsButtonClicked() {
+    var rests_date = document.getElementById('rests_date');
+    $.post('',{
+    updated:'rests',
+    date: rests_date.value,
+    csrfmiddlewaretoken: '{{ csrf_token }}' })
+}
+</script>
+<script src="{% static 'management/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'management/js/popper.min.js' %}"></script>
+<script src="{% static 'management/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'management/js/jquery.slimscroll.js' %}"></script>
+<script src="{% static 'management/js/Chart.bundle.js' %}"></script>
+<script src="{% static 'management/js/chart.js' %}" id="charts" sales_data="{{sales_per_month}}" rests_data="{{most_popular_rests}}"></script>
+<script src="{% static 'management/js/app.js' %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>Title</title>-->
+     <!-- Font Awesome css file LInk  -->
+  <link rel="stylesheet" href="{% static 'css/External/all.min.css' %}">
+  <!-- custom css file LInk -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <title>Food</title>
+</head>
+<body>
+
+  <!-- order section starts -->
+  <section class="order" id="order">
+    <h1 class="heading"><span> order</span>now</h1>
+    <div class="row">
+<!--      <div class="image">-->
+<!--        <img src="{% static 'img/order-img.jpg' %}" alt="">-->
+<!--      </div>-->
+      <form action="login" method="post">
+          {% csrf_token %}
+        <div class="inputBox">
+          <input type="text" placeholder="User ID" name="ID">
+          <input type="datetime-local" placeholder="Date of Order" name="Date">
+        </div>
+        <input type="submit" value="Predict" class="btn">
+      </form>
+    </div>
+  </section>
+  <!-- order section end -->
+
+</body>
+</html>

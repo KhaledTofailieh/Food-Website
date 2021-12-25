@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome css file LInk  -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/External/all.min.css' %}">
+  <!-- custom css file LInk -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/style.css' %}">
+
+  <title>Restaurants</title>
+</head>
+
+<body>
+
+<!-- header section start -->
+  <header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>BeeOrder</span> </a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navber">
+      <a>{{user_address}}</a>
+    </nav>
+  </header>
+<!-- header section end -->
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3 class="heading">Food <span> Predictor</span></h3>
+
+    </div>
+    <div class="image">
+      <img src="{% static 'food_menu/img/InkedInkedbeeorder_logo1_LI.jpg' %}" alt="">
+    </div>
+  </section>
+ <!-- speciality secion starts -->
+  <section class="speciality" id="rests">
+    <h1 class="heading"> our <span>restaurants</span></h1>
+    <div class="box-container">
+      {% for rest in rests %}
+      <div class="box">
+        <a href="/home/{{rest.rest_id}}">
+        <img class="image" src="{% static 'food_menu/img/s-img-1.jpg' %}" alt="">
+           </a>
+        <div class="content">
+
+          <img  src="{% static 'food_menu/img/s-1.png' %}" alt="">
+           <h3 >{{rest.name_a}} </h3>
+
+
+          <p>{{rest.address}}</p>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- speciality secion end -->
+
+<a href="#" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- custom js file Link -->
+<script src="{% static 'food_menu/js/min.js' %}"></script>
+
+</body>

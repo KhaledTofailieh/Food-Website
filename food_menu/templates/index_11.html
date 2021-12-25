@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome css file LInk  -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/External/all.min.css' %}">
+  <!-- custom css file LInk -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/style.css' %}">
+
+  <title>Food</title>
+</head>
+
+<body>
+{ % block content % }
+  <!-- header section start -->
+  <header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>BeeOrder Predictor</a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navber">
+      <a href="#home">home</a>
+      <a href="#speciality">speciality</a>
+      <a href="#popular">popular</a>
+      <a href="#gallery">gallery</a>
+      <a href="#review">review</a>
+      <a href="#order">order</a>
+    </nav>
+  </header>
+  <!-- header section end -->
+
+  <!-- home section start -->
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Food Predicator </h3>
+      <p> is a Gradguate Project with response of BeeOrder
+        this project made by :
+        <ul>
+          <li class="Team">Hadi Darwish</li>
+          <li class="Team">Khaled Akhtaby</li>
+          <li class="Team">Khaled Tofieleh</li>
+        </ul>
+        <a href="#" class="btn" onclick='predicte("2020-03-01 12:01:45")'>Start Predicate
+        </a>
+    </div>
+    <div class="image">
+      <img src="{% static 'food_menu/img/InkedInkedbeeorder_logo1_LI.jpg' %}" alt="">
+    </div>
+  </section>
+  <!-- home section end -->
+
+
+
+   <!-- steps section starts -->
+  <section class="steps">
+    <div class="box">
+      <img src="{% static 'food_menu/img/Firststep.jpg' %}" alt="">
+      <h3>choose your favorite food</h3>
+    </div>
+    <div class="box">
+      <img src="{% static 'food_menu/img/Secondstep.jpg' %}" alt="">
+      <h3>free and fast delivery</h3>
+    </div>
+    <div class="box">
+      <img src="{% static 'food_menu/img/Thirdstep.jpg' %}" alt="">
+      <h3>bay a money </h3>
+    </div>
+
+    <div class="box">
+      <img src="{% static 'food_menu/img/Fourthstep.jpg' %}" alt="">
+      <h3>and finally , enjoy your food</h3>
+    </div>
+
+  </section>
+  <!-- steps section end -->
+
+
+  <!-- popular section starts -->
+
+
+
+  <section class="popular" id="dishes">
+    <h1 class="heading"> dishes <span>for</span> you</h1>
+    <div class="box-container">
+      {% for dish in dishes.0 %}
+      <div class="box">
+        <span class="price">{{dish.dish_price}} SP</span>
+        <h3>{{dish.dish_name}}</h3>
+        <h2 class="rest_name">{{dish.rest_a_name}} <span>{{dish.address}}</span></h2>
+
+        <a  href="/related?dish_id={{dish.dish_id}}" class="btn">order now</a>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <!-- popular section end -->
+
+
+
+  <!-- review section starts -->
+  <section class="review" id="review">
+    <h1 class="heading"> our customers<span> review</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="{% static 'food_menu/img/pic1.png' %}" alt="">
+        <h3>john deo</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, illo. Delectus, cupiditate dolore ea
+          ullam itaque dolorum est quisquam nemo vitae temporibus in eaque mollitia ab minus! Sapiente, pariatur
+          corrupti?</p>
+      </div>
+      <div class="box">
+        <img src="{% static 'food_menu/img/pic2.png' %}" alt="">
+        <h3>john deo</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, illo. Delectus, cupiditate dolore ea
+          ullam itaque dolorum est quisquam nemo vitae temporibus in eaque mollitia ab minus! Sapiente, pariatur
+          corrupti?</p>
+      </div>
+      <div class="box">
+        <img src="{% static 'food_menu/img/pic3.png' %}" alt="">
+        <h3>john deo</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, illo. Delectus, cupiditate dolore ea
+          ullam itaque dolorum est quisquam nemo vitae temporibus in eaque mollitia ab minus! Sapiente, pariatur
+          corrupti?</p>
+      </div>
+    </div>
+  </section>
+  <!-- review section end -->
+
+
+
+  <!-- footer section starts -->
+  <section class="footer">
+    <div class="share">
+      <a target="_blank" href="https://www.facebook.com/hadi.darwish.7315" class="btn">facebook</a>
+<!--      <a href="#" class="btn">twitter</a>-->
+<!--      <a href="#" class="btn">instagram</a>-->
+<!--      <a href="#" class="btn">pinterest</a>-->
+      <a target="_blank" href="https://www.linkedin.com/in/hadi-darwish-engineer/" class="btn">linkedin</a>
+    </div>
+    <h1 class="credit">created by <span>mr . web sesigne</span> | all rights resweved</h1>
+  </section>
+  <!-- footer section end -->
+
+
+  <!-- scroll top button -->
+  <a href="#" class="fas fa-angle-up" id="scroll-top"></a>
+
+
+  <!-- loader -->
+  <div class="loader-container">
+    <img src="{% static 'food_menu/img/loader.gif' %}" alt="">
+  </div>
+
+
+
+  <!-- custom js file LInk -->
+  <script src="{% static 'food_menu/js/min.js' %}"></script>
+
+ { % endblock %}
+</body>
+
+</html>

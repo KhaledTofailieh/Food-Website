@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'food_menu/css/External/all.min.css' %}">
+    <!-- custom css file LInk -->
+    <link rel="stylesheet" href="{% static 'food_menu/css/style.css' %}">
+
+    <title>Also</title>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>BeeOrder</a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navber">
+        <a>{{user_address}}</a>
+    </nav>
+  </header>
+
+
+<section class="popular" id="pop"></section>
+
+<!-- gallery section starts -->
+  <section class="gallery" id="dishes">
+    <h1 class="heading"> See<span> also</span></h1>
+    <div class="box-container">
+        {% for dish in dishes %}
+      <div class="box">
+        <img src="{% static 'food_menu/img/g-1.jpg' %}" alt="">
+        <div class="content"><br><br>
+          <h3>{{dish.dish_name}}</h3>
+          <p>{{dish.rest_a_name}}</p>
+            <span class="price">{{dish.dish_price}} SP</span>
+            <span class="address">{{dish.address}} </span>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </section>
+
+<section class="footer">
+    <div class="share">
+      <a href="#" class="btn">facebook</a>
+      <a href="#" class="btn">twitter</a>
+      <a href="#" class="btn">instagram</a>
+      <a href="#" class="btn">pinterest</a>
+      <a href="#" class="btn">linkedin</a>
+    </div>
+    <h1 class="credit">created by <span>mr . web sesigne</span> | all rights resweved</h1>
+  </section>
+
+  <a href="#" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- custom js file Link -->
+  <script src="{% static 'food_menu/js/min.js' %}"></script>
+</body>
+</html>

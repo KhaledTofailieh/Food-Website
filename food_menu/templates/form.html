@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>Title</title>-->
+     <!-- Font Awesome css file LInk  -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/External/all.min.css' %}">
+  <!-- custom css file LInk -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/style.css' %}">
+
+  <title>Login</title>
+</head>
+<body>
+
+  <!-- order section starts -->
+  <section class="order" id="order">
+    <h1 class="heading"><span> bee</span>order</h1>
+    <div class="row">
+      <div class="image">
+        <img src="{% static 'food_menu/img/order-img.jpg' %}" alt="">
+      </div>
+
+      <form action="login" method="post">
+          {% csrf_token %}
+        <div class="inputBox">
+          <input type="text" placeholder="user id" name="id">
+<!--          <input type="email" placeholder="email" name="time">-->
+        </div>
+
+        <div class="inputBox">
+          <input type="time" placeholder="time" name="time">
+<!--          <input type="text" placeholder="food name">-->
+        </div>
+<!--        <textarea name="" id="" cols="30" rows="10" placeholder="address"></textarea>-->
+        <input type="submit" value="let's go" class="btn" >
+      </form>
+    </div>
+  </section>
+  <!-- order section end -->
+
+</body>
+</html>

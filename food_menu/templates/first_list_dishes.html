@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome css file LInk  -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/External/all.min.css' %}">
+  <!-- custom css file LInk -->
+  <link rel="stylesheet" href="{% static 'food_menu/css/style.css' %}">
+
+  <title>Food</title>
+</head>
+
+<body>
+  <!-- header section start -->
+  <header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>BeeOrder</a>
+    <div id="menu" class="fas fa-bars"></div>
+    <nav class="navber">
+      <a>{{user_address}}</a>
+    </nav>
+  </header>
+  <!-- header section end -->
+
+
+  <!-- popular section starts -->
+  <section class="popular" id=""></section>
+  <section class="popular" id="dishes">
+    <h1 class="heading"> dishes <span>for</span> you</h1>
+    <div class="box-container">
+      {% for dish in dish_rest %}
+      <div class="box">
+        <span class="price">{{dish.dish_price}} SP</span>
+        <img src="{{dish.img_url.url}}" alt="">
+        <h3>{{dish.dish_name}}</h3>
+        <h2 style="flow:right" class="rest_name">{{dish.rest_a_name}}  &emsp;&emsp;<span>{{dish.address}}</span></h2>
+
+        <a  href=/home/{{dish.rest_id}}/{{dish.dish_id}} class="btn">order now</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- popular section end -->
+
+
+  <!-- footer section starts -->
+  <section class="footer">
+    <div class="share">
+      <a href="#" class="btn">facebook</a>
+      <a href="#" class="btn">twitter</a>
+      <a href="#" class="btn">instagram</a>
+      <a href="#" class="btn">pinterest</a>
+      <a href="#" class="btn">linkedin</a>
+    </div>
+    <h1 class="credit">created by <span>mr . web sesigne</span> | all rights resweved</h1>
+  </section>
+  <!-- footer section end -->
+
+
+  <!-- scroll top button -->
+  <a href="#" class="fas fa-angle-up" id="scroll-top"></a>
+
+
+  <!-- loader -->
+  <div class="loader-container">
+    <img src="{% static 'food_menu/img/loader.gif' %}" alt="">
+  </div>
+
+
+  <!-- custom js file LInk -->
+  <script src="{% static 'food_menu/js/min.js' %}"></script>
+</body>
+
+</html>
